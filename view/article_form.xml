@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- This file is part galatea_cms of Tryton. The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<form string="Article">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="slug"/>
+    <field name="slug"/>
+    <label name="galatea_website"/>
+    <field name="galatea_website"/>
+    <label name="template"/>
+    <field name="template"/>
+    <label name="active"/>
+    <field name="active"/>
+    <notebook colspan="4">
+        <page string="Descriptions" id="descriptions">
+            <field name="description"/>
+        </page>
+        <page string="SEO" id="seo">
+            <label name="metadescription"/>
+            <field name="metadescription"/><newline/>
+            <label name="metakeywords"/>
+            <field name="metakeywords"/><newline/>
+            <label name="metatitle"/>
+            <field name="metatitle"/><newline/>
+        </page>
+    </notebook>
+</form>

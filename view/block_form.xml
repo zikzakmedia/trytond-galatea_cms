@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!-- This file is part galatea_cms of Tryton. The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<form string="Block">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="code"/>
+    <field name="code"/>
+    <label name="type"/>
+    <field name="type"/>
+    <label name="click_url"/>
+    <field name="click_url"/>
+    <label name="active"/>
+    <field name="active"/>
+    <notebook colspan="4">
+        <page string="Block" id="block">
+            <label name="file"/>
+            <field name="file"/>
+            <label name="remote_image_url"/>
+            <field name="remote_image_url"/>
+            <label name="height"/>
+            <field name="height"/>
+            <label name="width"/>
+            <field name="width"/>
+            <separator name="custom_code" colspan="4"/>
+            <field name="custom_code" colspan="4"/>
+        </page>
+        <page string="SEO" id="seo">
+            <label name="alternative_text"/>
+            <field name="alternative_text"/>
+        </page>
+    </notebook>
+</form>
