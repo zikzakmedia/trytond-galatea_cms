@@ -69,7 +69,11 @@ class Menu(ModelSQL, ModelView):
         default['left'] = 0
         default['right'] = 0
 
-        new_menus = super(Menu, cls).copy(menus, default=default)
+        new_menus = []
+        for menu in menus:
+            default['slug'] = '%s-copy' % menu.slug
+            new_menu, = super(Menu, cls).copy([menu], default=default)
+            new_menus.append(new_menu)
         return new_menus
 
 
