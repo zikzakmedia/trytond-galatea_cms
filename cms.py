@@ -4,6 +4,7 @@
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.pool import Pool
 from trytond.transaction import Transaction
+from trytond.cache import Cache
 from trytond.pyson import Eval, Not, Equal, In
 from .tools import slugify
 
@@ -99,6 +100,7 @@ class Article(ModelSQL, ModelView):
         help='Dissable to not show content article.')
     galatea_website = fields.Many2One('galatea.website', 'Website',
         domain=[('active', '=', True)], required=True)
+    _slug_langs_cache = Cache('galatea_cms_article.slug_langs')
 
     @staticmethod
     def default_active():
