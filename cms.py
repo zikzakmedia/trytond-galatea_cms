@@ -8,7 +8,7 @@ from trytond.cache import Cache
 from trytond.pyson import Eval, Not, Equal, In
 from .tools import slugify
 
-__all__ = ['Menu', 'Article', 'Block']
+__all__ = ['Menu', 'Article', 'Block', 'Carousel', 'CarouselItem']
 
 
 class Menu(ModelSQL, ModelView):
@@ -227,3 +227,57 @@ class Block(ModelSQL, ModelView):
         if self.name and not self.code:
             res['code'] = slugify(self.name)
         return res
+
+
+class Carousel(ModelSQL, ModelView):
+    "Carousel CMS"
+    __name__ = 'galatea.cms.carousel'
+    name = fields.Char('Name', translate=True,
+        required=True, on_change=['name', 'code'])
+    code = fields.Char('Code', required=True,
+        help='Internal code. Use characters az09')
+    active = fields.Boolean('Active', select=True)
+    items = fields.One2Many('galatea.cms.carousel.item', 'carousel', 'Items')
+
+    @staticmethod
+    def default_active():
+        return True
+
+    def on_change_name(self):
+        res = {}
+        if self.name and not self.code:
+            res['code'] = slugify(self.name)
+        return res
+
+
+class CarouselItem(ModelSQL, ModelView):
+    "Carousel Item CMS"
+    __name__ = 'galatea.cms.carousel.item'
+    carousel = fields.Many2One("galatea.cms.carousel", "Carousel", required=True)
+    name = fields.Char('Label', translate=True, required=True)
+    link = fields.Char('Link', translate=True,
+        help='URL absolute')
+    image = fields.Char('Image', translate=True,
+        help='Image with URL absolute')
+    sublabel = fields.Char('Sublabel', translate=True,
+        help='In case text carousel, second text')
+    description = fields.Char('Description', translate=True,
+        help='In cas text carousel, description text')
+    html = fields.Text('HTML', translate=True,
+        help='HTML formated item - Content carousel-inner')
+    active = fields.Boolean('Active', select=True)
+    sequence = fields.Integer('Sequence')
+
+    @staticmethod
+    def default_active():
+        return True
+
+    @staticmethod
+    def default_sequence():
+        return 1
+
+    @classmethod
+    def __setup__(cls):
+        super(CarouselItem, cls).__setup__()
+        cls._order.insert(0, ('sequence', 'ASC'))
+        cls._order.insert(1, ('id', 'ASC'))

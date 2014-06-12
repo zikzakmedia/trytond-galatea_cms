@@ -21,13 +21,11 @@
             <field name="type">form</field>
             <field name="name">menu_form</field>
         </record>
-
         <record model="ir.ui.view" id="cms_menu_view_tree">
             <field name="model">galatea.cms.menu</field>
             <field name="type">tree</field>
             <field name="name">menu_tree</field>
         </record>
-
         <record model="ir.ui.view" id="cms_menu_view_list">
             <field name="model">galatea.cms.menu</field>
             <field name="type">tree</field>
@@ -36,7 +34,6 @@
             <field name="name">menu_list</field>
         </record>
 
-        <!-- Actions / Menu -->
         <record model="ir.action.act_window" id="act_cms_menu_tree">
             <field name="name">Menus</field>
             <field name="res_model">galatea.cms.menu</field>
@@ -78,14 +75,12 @@
             <field name="type">form</field>
             <field name="name">article_form</field>
         </record>
-
         <record model="ir.ui.view" id="cms_article_view_tree">
             <field name="model">galatea.cms.article</field>
             <field name="type">tree</field>
             <field name="name">article_tree</field>
         </record>
 
-        <!-- Actions / Menu -->
         <record model="ir.action.act_window" id="act_cms_article_form">
             <field name="name">Articles</field>
             <field name="res_model">galatea.cms.article</field>
@@ -109,14 +104,12 @@
             <field name="type">form</field>
             <field name="name">block_form</field>
         </record>
-
         <record model="ir.ui.view" id="cms_block_view_tree">
             <field name="model">galatea.cms.block</field>
             <field name="type">tree</field>
             <field name="name">block_tree</field>
         </record>
 
-        <!-- Actions / Menu -->
         <record model="ir.action.act_window" id="act_cms_block_form">
             <field name="name">Blocks</field>
             <field name="res_model">galatea.cms.block</field>
@@ -133,6 +126,47 @@
         </record>
         <menuitem parent="menu_galatea_cms" action="act_cms_block_form"
             id="menu_cms_block_form"/>
+
+        <!-- galatea.cms.carousel -->
+        <record model="ir.ui.view" id="cms_carousel_view_form">
+            <field name="model">galatea.cms.carousel</field>
+            <field name="type">form</field>
+            <field name="name">carousel_form</field>
+        </record>
+        <record model="ir.ui.view" id="cms_carousel_view_tree">
+            <field name="model">galatea.cms.carousel</field>
+            <field name="type">tree</field>
+            <field name="name">carousel_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_cms_carousel_form">
+            <field name="name">Carousel</field>
+            <field name="res_model">galatea.cms.carousel</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_cms_carousel_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="cms_carousel_view_tree"/>
+            <field name="act_window" ref="act_cms_carousel_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_cms_carousel_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="cms_carousel_view_form"/>
+            <field name="act_window" ref="act_cms_carousel_form"/>
+        </record>
+        <menuitem parent="menu_galatea_cms" action="act_cms_carousel_form"
+            id="menu_cms_carousel_form"/>
+            
+        <!-- galatea.cms.carousel.item -->
+        <record model="ir.ui.view" id="cms_carousel_item_view_form">
+            <field name="model">galatea.cms.carousel.item</field>
+            <field name="type">form</field>
+            <field name="name">cms_carousel_item_form</field>
+        </record>
+        <record model="ir.ui.view" id="cms_carousel_item_view_tree">
+            <field name="model">galatea.cms.carousel.item</field>
+            <field name="type">tree</field>
+            <field name="name">cms_carousel_item_tree</field>
+        </record>
 
         <!-- Access -->
         <record model="ir.model.access" id="access_galatea_cms_menu">
@@ -153,6 +187,22 @@
         </record>
         <record model="ir.model.access" id="access_galatea_cms_block">
             <field name="model" search="[('model', '=', 'galatea.cms.block')]"/>
+            <field name="group" ref="group_galatea_cms"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_galatea_cms_carousel">
+            <field name="model" search="[('model', '=', 'galatea.cms.carousel')]"/>
+            <field name="group" ref="group_galatea_cms"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_galatea_cms_carousel_item">
+            <field name="model" search="[('model', '=', 'galatea.cms.carousel.item')]"/>
             <field name="group" ref="group_galatea_cms"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>

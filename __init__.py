@@ -9,4 +9,6 @@ def register():
         Menu,
         Article,
         Block,
+        Carousel,
+        CarouselItem,
         module='galatea_cms', type_='model')
