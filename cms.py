@@ -3,6 +3,7 @@
 #the full copyright notices and license terms.
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.pool import Pool
+from trytond.transaction import Transaction
 from trytond.pyson import Eval, Not, Equal, In
 from .tools import slugify
 
@@ -16,7 +17,7 @@ class Menu(ModelSQL, ModelView):
         required=True, on_change=['name', 'code', 'slug'])
     code = fields.Char('Code', required=True,
         help='Internal code.')
-    slug = fields.Char('slug', translate=True, required=True,
+    slug = fields.Char('Slug', translate=True, required=True,
         help='Cannonical uri.')
     active = fields.Boolean('Active', select=True)
     parent = fields.Many2One("galatea.cms.menu", "Parent", select=True)
@@ -81,8 +82,9 @@ class Article(ModelSQL, ModelView):
     __name__ = 'galatea.cms.article'
     name = fields.Char('Title', translate=True,
         required=True, on_change=['name', 'slug'])
-    slug = fields.Char('slug', required=True,
+    slug = fields.Char('Slug', required=True, translate=True,
         help='Cannonical uri.')
+    slug_langs = fields.Function(fields.Dict(None, 'Slug Langs'), 'get_slug_langs')
     description = fields.Text('Description', required=True, translate=True,
         help='You could write wiki markup to create html content. Formats text following '
         'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
@@ -140,6 +142,26 @@ class Article(ModelSQL, ModelView):
     @classmethod
     def delete(cls, posts):
         cls.raise_user_error('delete_articles')
+
+    def get_slug_langs(self, name):
+        '''Return dict slugs by all languaes actives'''
+        pool = Pool()
+        Lang = pool.get('ir.lang')
+        Article = pool.get('galatea.cms.article')
+
+        article_id = self.id
+        langs = Lang.search([
+            ('active', '=', True),
+            ('translatable', '=', True),
+            ])
+
+        slugs = {}
+        for lang in langs:
+            with Transaction().set_context(language=lang.code):
+                article, = Article.read([article_id], ['slug'])
+                slugs[lang.code] = article['slug']
+
+        return slugs
 
 
 class Block(ModelSQL, ModelView):
