@@ -12,6 +12,10 @@ this repository contains the full copyright notices and license terms. -->
     <field name="parent"/>
     <label name="sequence"/>
     <field name="sequence"/>
+    <label name="login"/>
+    <field name="login"/>
+    <label name="manager"/>
+    <field name="manager"/>
     <label name="active"/>
     <field name="active"/>
 </form>

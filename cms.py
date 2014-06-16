@@ -26,6 +26,8 @@ class Menu(ModelSQL, ModelView):
     right = fields.Integer('Right', required=True, select=True)
     childs = fields.One2Many('galatea.cms.menu', 'parent', 'Children')
     sequence = fields.Integer('Sequence')
+    login = fields.Boolean('Login', help='Allow login users')
+    manager = fields.Boolean('Manager', help='Allow manager users')
 
     @staticmethod
     def default_active():
