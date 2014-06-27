@@ -28,6 +28,8 @@ class Menu(ModelSQL, ModelView):
     sequence = fields.Integer('Sequence')
     login = fields.Boolean('Login', help='Allow login users')
     manager = fields.Boolean('Manager', help='Allow manager users')
+    nofollow = fields.Boolean('Nofollow',
+        help='Add attribute in links to not search engines continue')
 
     @staticmethod
     def default_active():

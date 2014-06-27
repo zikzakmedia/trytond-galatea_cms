@@ -9,4 +9,5 @@ this repository contains the full copyright notices and license terms. -->
     <field name="active"/>
     <field name="login"/>
     <field name="manager"/>
+    <field name="nofollow"/>
 </tree>
