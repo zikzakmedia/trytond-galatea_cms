@@ -12,6 +12,8 @@ this repository contains the full copyright notices and license terms. -->
     <field name="template"/>
     <label name="active"/>
     <field name="active"/>
+    <label name="uri"/>
+    <field name="uri" widget="url"/>
     <notebook colspan="4">
         <page string="Descriptions" id="descriptions">
             <field name="description"/>

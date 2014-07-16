@@ -90,6 +90,7 @@ class Article(ModelSQL, ModelView):
     slug = fields.Char('Slug', required=True, translate=True,
         help='Cannonical uri.')
     slug_langs = fields.Function(fields.Dict(None, 'Slug Langs'), 'get_slug_langs')
+    uri = fields.Function(fields.Char('Uri'), 'get_uri')
     description = fields.Text('Description', required=True, translate=True,
         help='You could write wiki markup to create html content. Formats text following '
         'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
@@ -168,6 +169,16 @@ class Article(ModelSQL, ModelView):
                 slugs[lang.code] = article['slug']
 
         return slugs
+
+    def get_uri(self, name):
+        if self.galatea_website:
+            locale = Transaction().context.get('language', 'en')
+            return '%s%s/%s' % (
+                self.galatea_website.uri,
+                locale[:2],
+                self.slug,
+                )
+        return ''
 
 
 class Block(ModelSQL, ModelView):
