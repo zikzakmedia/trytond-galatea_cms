@@ -1,4 +1,4 @@
-#:after:galatea/galatea:section:cambiar_contrasena#
+#:before:galatea/galatea:section:ficheros_estaticos#
 
 .. inheritref:: galatea_cms/galatea:section:cms
 
