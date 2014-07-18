@@ -266,6 +266,10 @@ msgctxt "field:galatea.cms.menu,create_uid:"
 msgid "Create User"
 msgstr "Usuari creació"
 
+msgctxt "field:galatea.cms.menu,icon:"
+msgid "Icon"
+msgstr "Icona"
+
 msgctxt "field:galatea.cms.menu,id:"
 msgid "ID"
 msgstr "ID"
@@ -277,6 +281,10 @@ msgstr "Esquerra"
 msgctxt "field:galatea.cms.menu,login:"
 msgid "Login"
 msgstr "Nom d'usuari"
+
+msgctxt "field:galatea.cms.menu,manager:"
+msgid "Manager"
+msgstr "Gestor"
 
 msgctxt "field:galatea.cms.menu,name:"
 msgid "Name"
@@ -382,6 +390,10 @@ msgstr "En cas de text en el carrosser, segon text"
 msgctxt "help:galatea.cms.menu,code:"
 msgid "Internal code."
 msgstr "Codi intern."
+
+msgctxt "help:galatea.cms.menu,icon:"
+msgid "Icon name show in menu."
+msgstr "Nom de la icona a mostrar al menú"
 
 msgctxt "help:galatea.cms.menu,login:"
 msgid "Allow login users"

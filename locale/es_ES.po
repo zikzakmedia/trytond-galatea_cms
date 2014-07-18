@@ -266,6 +266,10 @@ msgctxt "field:galatea.cms.menu,create_uid:"
 msgid "Create User"
 msgstr "Usuario creación"
 
+msgctxt "field:galatea.cms.menu,icon:"
+msgid "Icon"
+msgstr "Icono"
+
 msgctxt "field:galatea.cms.menu,id:"
 msgid "ID"
 msgstr "ID"
@@ -388,6 +392,10 @@ msgctxt "help:galatea.cms.menu,code:"
 msgid "Internal code."
 msgstr "Código interno."
 
+msgctxt "help:galatea.cms.menu,icon:"
+msgid "Icon name show in menu."
+msgstr "Nombre del icono a mostrar en el menú"
+
 msgctxt "help:galatea.cms.menu,login:"
 msgid "Allow login users"
 msgstr "Permite identifcación usuarios"
@@ -398,7 +406,8 @@ msgstr "Permite gestión usuarios"
 
 msgctxt "help:galatea.cms.menu,nofollow:"
 msgid "Add attribute in links to not search engines continue"
-msgstr "Añade un atributo en los vínculos para que los buscadores no continúen"
+msgstr ""
+"Añade un atributo en los vínculos para que los buscadores no continúen"
 
 msgctxt "help:galatea.cms.menu,slug:"
 msgid "Cannonical uri."
