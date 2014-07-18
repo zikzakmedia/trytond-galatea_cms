@@ -18,6 +18,8 @@ class Menu(ModelSQL, ModelView):
         required=True, on_change=['name', 'code', 'slug'])
     code = fields.Char('Code', required=True,
         help='Internal code.')
+    icon = fields.Char('Icon',
+        help='Icon name show in menu.')
     slug = fields.Char('Slug', translate=True, required=True,
         help='Cannonical uri.')
     active = fields.Boolean('Active', select=True)
