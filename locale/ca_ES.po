@@ -14,6 +14,10 @@ msgctxt "field:galatea.cms.article,active:"
 msgid "Active"
 msgstr "Actiu"
 
+msgctxt "field:galatea.cms.article,attachments:"
+msgid "Attachments"
+msgstr "Adjunts"
+
 msgctxt "field:galatea.cms.article,create_date:"
 msgid "Create Date"
 msgstr "Data creació"
@@ -85,6 +89,10 @@ msgstr "Actiu"
 msgctxt "field:galatea.cms.block,alternative_text:"
 msgid "Alternative Text"
 msgstr "Text alternatiu"
+
+msgctxt "field:galatea.cms.block,attachments:"
+msgid "Attachments"
+msgstr "Adjunts"
 
 msgctxt "field:galatea.cms.block,click_url:"
 msgid "Click URL"
@@ -502,12 +510,20 @@ msgid "Articles"
 msgstr "Articles"
 
 msgctxt "view:galatea.cms.article:"
+msgid "Attachments"
+msgstr "Adjunts"
+
+msgctxt "view:galatea.cms.article:"
 msgid "Descriptions"
 msgstr "Descripcions"
 
 msgctxt "view:galatea.cms.article:"
 msgid "SEO"
 msgstr "SEO"
+
+msgctxt "view:galatea.cms.block:"
+msgid "Attachments"
+msgstr "Adjunts"
 
 msgctxt "view:galatea.cms.block:"
 msgid "Block"
