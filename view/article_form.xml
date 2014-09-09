@@ -26,5 +26,8 @@ this repository contains the full copyright notices and license terms. -->
             <label name="metatitle"/>
             <field name="metatitle"/><newline/>
         </page>
+        <page string="Attachments" id="attachments">
+            <field name="attachments"/>
+        </page>
     </notebook>
 </form>

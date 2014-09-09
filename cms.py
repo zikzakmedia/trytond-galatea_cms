@@ -108,6 +108,7 @@ class Article(ModelSQL, ModelView):
     galatea_website = fields.Many2One('galatea.website', 'Website',
         domain=[('active', '=', True)], required=True)
     _slug_langs_cache = Cache('galatea_cms_article.slug_langs')
+    attachments = fields.One2Many('ir.attachment', 'resource', 'Attachments')
 
     @staticmethod
     def default_active():
@@ -228,6 +229,7 @@ class Block(ModelSQL, ModelView):
             'invisible': Not(In(Eval('type'), ['image', 'remote_image']))
             })
     active = fields.Boolean('Active', select=True)
+    attachments = fields.One2Many('ir.attachment', 'resource', 'Attachments')
 
     @staticmethod
     def default_active():
