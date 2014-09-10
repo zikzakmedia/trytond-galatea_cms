@@ -74,6 +74,10 @@ msgctxt "field:galatea.cms.article,uri:"
 msgid "Uri"
 msgstr "Uri"
 
+msgctxt "field:galatea.cms.article,wikimarkup:"
+msgid "WikiMarkup"
+msgstr "WikiMarkup"
+
 msgctxt "field:galatea.cms.article,write_date:"
 msgid "Write Date"
 msgstr "Fecha modificación"
@@ -358,6 +362,10 @@ msgstr "Separado con la coma"
 msgctxt "help:galatea.cms.article,slug:"
 msgid "Cannonical uri."
 msgstr "Cannonical uri."
+
+msgctxt "help:galatea.cms.article,wikimarkup:"
+msgid "Article use wiki markups"
+msgstr "El artículo usa wiki markups"
 
 msgctxt "help:galatea.cms.block,code:"
 msgid "Internal code."
