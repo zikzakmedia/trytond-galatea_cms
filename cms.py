@@ -109,9 +109,15 @@ class Article(ModelSQL, ModelView):
         domain=[('active', '=', True)], required=True)
     _slug_langs_cache = Cache('galatea_cms_article.slug_langs')
     attachments = fields.One2Many('ir.attachment', 'resource', 'Attachments')
+    wikimarkup = fields.Boolean('WikiMarkup',
+        help='Article use wiki markups')
 
     @staticmethod
     def default_active():
+        return True
+
+    @staticmethod
+    def default_wikimarkup():
         return True
 
     @staticmethod

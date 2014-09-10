@@ -16,7 +16,10 @@ this repository contains the full copyright notices and license terms. -->
     <field name="uri" widget="url"/>
     <notebook colspan="4">
         <page string="Descriptions" id="descriptions">
-            <field name="description"/>
+            <field name="description" colspan="4"/>
+            <newline/>
+            <label name="wikimarkup"/>
+            <field name="wikimarkup"/>
         </page>
         <page string="SEO" id="seo">
             <label name="metadescription"/>
