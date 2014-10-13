@@ -14,6 +14,10 @@
           <field name="menu" ref="menu_galatea_cms"/>
           <field name="group" ref="group_galatea_cms"/>
         </record>
+        <record model="ir.ui.menu-res.group" id="menu_galatea_cms_group_galatea">
+            <field name="menu" ref="menu_galatea_cms"/>
+            <field name="group" ref="galatea.group_galatea"/>
+        </record>
 
         <!-- galatea.cms.menu -->
         <record model="ir.ui.view" id="cms_menu_view_form">
@@ -177,6 +181,15 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+        <record model="ir.model.access" id="access_galatea_galatea_cms_menu">
+            <field name="model" search="[('model', '=', 'galatea.cms.menu')]"/>
+            <field name="group" ref="galatea.group_galatea"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
         <record model="ir.model.access" id="access_galatea_cms_article">
             <field name="model" search="[('model', '=', 'galatea.cms.article')]"/>
             <field name="group" ref="group_galatea_cms"/>
@@ -185,6 +198,15 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+        <record model="ir.model.access" id="access_galatea_galatea_cms_article">
+            <field name="model" search="[('model', '=', 'galatea.cms.article')]"/>
+            <field name="group" ref="galatea.group_galatea"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
         <record model="ir.model.access" id="access_galatea_cms_block">
             <field name="model" search="[('model', '=', 'galatea.cms.block')]"/>
             <field name="group" ref="group_galatea_cms"/>
@@ -193,6 +215,15 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+        <record model="ir.model.access" id="access_galatea_galatea_cms_block">
+            <field name="model" search="[('model', '=', 'galatea.cms.block')]"/>
+            <field name="group" ref="galatea.group_galatea"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
         <record model="ir.model.access" id="access_galatea_cms_carousel">
             <field name="model" search="[('model', '=', 'galatea.cms.carousel')]"/>
             <field name="group" ref="group_galatea_cms"/>
@@ -201,6 +232,15 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+        <record model="ir.model.access" id="access_galatea_galatea_cms_carousel">
+            <field name="model" search="[('model', '=', 'galatea.cms.carousel')]"/>
+            <field name="group" ref="galatea.group_galatea"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
         <record model="ir.model.access" id="access_galatea_cms_carousel_item">
             <field name="model" search="[('model', '=', 'galatea.cms.carousel.item')]"/>
             <field name="group" ref="group_galatea_cms"/>
@@ -208,6 +248,14 @@
             <field name="perm_write" eval="True"/>
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_galatea_galatea_cms_carousel_item">
+            <field name="model" search="[('model', '=', 'galatea.cms.carousel.item')]"/>
+            <field name="group" ref="galatea.group_galatea"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
         </record>
     </data>
 </tryton>
