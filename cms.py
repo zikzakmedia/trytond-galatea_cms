@@ -20,6 +20,8 @@ class Menu(ModelSQL, ModelView):
         help='Internal code.')
     icon = fields.Char('Icon',
         help='Icon name show in menu.')
+    css = fields.Char('CSS',
+        help='Class CSS in menu.')
     slug = fields.Char('Slug', translate=True, required=True,
         help='Cannonical uri.')
     active = fields.Boolean('Active', select=True)
