@@ -278,6 +278,10 @@ msgctxt "field:galatea.cms.menu,create_uid:"
 msgid "Create User"
 msgstr "Usuari creació"
 
+msgctxt "field:galatea.cms.menu,css:"
+msgid "CSS"
+msgstr "CSS"
+
 msgctxt "field:galatea.cms.menu,icon:"
 msgid "Icon"
 msgstr "Icona"
@@ -406,6 +410,10 @@ msgstr "En cas de text en el carrosser, segon text"
 msgctxt "help:galatea.cms.menu,code:"
 msgid "Internal code."
 msgstr "Codi intern."
+
+msgctxt "help:galatea.cms.menu,css:"
+msgid "Class CSS in menu."
+msgstr "Classe CSS en el menú."
 
 msgctxt "help:galatea.cms.menu,icon:"
 msgid "Icon name show in menu."
