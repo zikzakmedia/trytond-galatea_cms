@@ -3,6 +3,7 @@
 this repository contains the full copyright notices and license terms. -->
 <tree string="Menus">
     <field name="name"/>
+    <field name="parent"/>
     <field name="code"/>
     <field name="slug"/>
     <field name="sequence"/>
