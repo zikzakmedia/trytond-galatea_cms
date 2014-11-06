@@ -296,7 +296,7 @@ msgstr "Esquerra"
 
 msgctxt "field:galatea.cms.menu,login:"
 msgid "Login"
-msgstr "Nom d'usuari"
+msgstr "Identificat"
 
 msgctxt "field:galatea.cms.menu,manager:"
 msgid "Manager"

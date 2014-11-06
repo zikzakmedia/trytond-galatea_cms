@@ -296,7 +296,7 @@ msgstr "Izquieda"
 
 msgctxt "field:galatea.cms.menu,login:"
 msgid "Login"
-msgstr "Identificador"
+msgstr "Identificado"
 
 msgctxt "field:galatea.cms.menu,manager:"
 msgid "Manager"
