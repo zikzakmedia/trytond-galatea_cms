@@ -32,7 +32,7 @@ msgstr "Descripció"
 
 msgctxt "field:galatea.cms.article,galatea_website:"
 msgid "Website"
-msgstr "Lloc Web"
+msgstr "Lloc web"
 
 msgctxt "field:galatea.cms.article,id:"
 msgid "ID"
@@ -360,7 +360,7 @@ msgstr ""
 
 msgctxt "help:galatea.cms.article,metakeywords:"
 msgid "Separated by comma"
-msgstr "Separat amb coma"
+msgstr "Separat amb coma."
 
 msgctxt "help:galatea.cms.article,slug:"
 msgid "Cannonical uri."

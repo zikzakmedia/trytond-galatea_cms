@@ -32,7 +32,7 @@ msgstr "Descripción"
 
 msgctxt "field:galatea.cms.article,galatea_website:"
 msgid "Website"
-msgstr "Sitio Web"
+msgstr "Sitio web"
 
 msgctxt "field:galatea.cms.article,id:"
 msgid "ID"
