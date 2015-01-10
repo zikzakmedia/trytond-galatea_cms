@@ -107,6 +107,11 @@ class Article(ModelSQL, ModelView):
     template = fields.Char('Template', required=True)
     active = fields.Boolean('Active',
         help='Dissable to not show content article.')
+    visibility = fields.Selection([
+            ('public','Public'),
+            ('register','Register'),
+            ('manager','Manager'),
+            ], 'Visibility', required=True)
     galatea_website = fields.Many2One('galatea.website', 'Website',
         domain=[('active', '=', True)], required=True)
     _slug_langs_cache = Cache('galatea_cms_article.slug_langs')
@@ -117,6 +122,10 @@ class Article(ModelSQL, ModelView):
     @staticmethod
     def default_active():
         return True
+
+    @staticmethod
+    def default_visibility():
+        return 'public'
 
     @staticmethod
     def default_wikimarkup():

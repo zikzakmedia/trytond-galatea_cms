@@ -29,6 +29,10 @@ this repository contains the full copyright notices and license terms. -->
             <label name="metatitle"/>
             <field name="metatitle"/><newline/>
         </page>
+        <page string="Extra" id="extra">
+            <label name="visibility"/>
+            <field name="visibility"/>
+        </page>
         <page string="Attachments" id="attachments">
             <field name="attachments"/>
         </page>
