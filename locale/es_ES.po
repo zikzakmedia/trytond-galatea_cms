@@ -74,6 +74,10 @@ msgctxt "field:galatea.cms.article,uri:"
 msgid "Uri"
 msgstr "Uri"
 
+msgctxt "field:galatea.cms.article,visibility:"
+msgid "Visibility"
+msgstr "Visibilidad"
+
 msgctxt "field:galatea.cms.article,wikimarkup:"
 msgid "WikiMarkup"
 msgstr "WikiMarkup"
@@ -505,6 +509,18 @@ msgctxt "model:res.group,name:group_galatea_cms"
 msgid "Galatea CMS"
 msgstr "Galatea CMS"
 
+msgctxt "selection:galatea.cms.article,visibility:"
+msgid "Manager"
+msgstr "Gestor"
+
+msgctxt "selection:galatea.cms.article,visibility:"
+msgid "Public"
+msgstr "Público"
+
+msgctxt "selection:galatea.cms.article,visibility:"
+msgid "Register"
+msgstr "Registrado"
+
 msgctxt "selection:galatea.cms.block,type:"
 msgid "Custom Code"
 msgstr "Código interno"
@@ -532,6 +548,10 @@ msgstr "Adjuntos"
 msgctxt "view:galatea.cms.article:"
 msgid "Descriptions"
 msgstr "Descripciones"
+
+msgctxt "view:galatea.cms.article:"
+msgid "Extra"
+msgstr "Extra"
 
 msgctxt "view:galatea.cms.article:"
 msgid "SEO"
