@@ -25,6 +25,10 @@ this repository contains the full copyright notices and license terms. -->
             <separator name="custom_code" colspan="4"/>
             <field name="custom_code" colspan="4"/>
         </page>
+        <page string="Extra" id="extra">
+            <label name="visibility"/>
+            <field name="visibility"/>
+        </page>
         <page string="SEO" id="seo">
             <label name="alternative_text"/>
             <field name="alternative_text"/>
