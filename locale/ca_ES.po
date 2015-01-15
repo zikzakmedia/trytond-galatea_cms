@@ -150,6 +150,10 @@ msgctxt "field:galatea.cms.block,type:"
 msgid "Type"
 msgstr "Tipus"
 
+msgctxt "field:galatea.cms.block,visibility:"
+msgid "Visibility"
+msgstr "Visibilidad"
+
 msgctxt "field:galatea.cms.block,width:"
 msgid "Width"
 msgstr "Amplada"
@@ -533,6 +537,18 @@ msgctxt "selection:galatea.cms.block,type:"
 msgid "Remote Image"
 msgstr "Imatge remota"
 
+msgctxt "selection:galatea.cms.block,visibility:"
+msgid "Manager"
+msgstr "Gestor"
+
+msgctxt "selection:galatea.cms.block,visibility:"
+msgid "Public"
+msgstr "Públic"
+
+msgctxt "selection:galatea.cms.block,visibility:"
+msgid "Register"
+msgstr "Registrat"
+
 msgctxt "view:galatea.cms.article:"
 msgid "Article"
 msgstr "Article"
@@ -568,6 +584,10 @@ msgstr "Bloc"
 msgctxt "view:galatea.cms.block:"
 msgid "Blocks"
 msgstr "Blocs"
+
+msgctxt "view:galatea.cms.block:"
+msgid "Extra"
+msgstr "Extra"
 
 msgctxt "view:galatea.cms.block:"
 msgid "SEO"
