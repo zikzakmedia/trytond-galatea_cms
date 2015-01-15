@@ -247,6 +247,11 @@ class Block(ModelSQL, ModelView):
             })
     active = fields.Boolean('Active', select=True)
     attachments = fields.One2Many('ir.attachment', 'resource', 'Attachments')
+    visibility = fields.Selection([
+            ('public','Public'),
+            ('register','Register'),
+            ('manager','Manager'),
+            ], 'Visibility', required=True)
 
     @staticmethod
     def default_active():
@@ -257,6 +262,10 @@ class Block(ModelSQL, ModelView):
     def default_type():
         'Return Image'
         return 'image'
+
+    @staticmethod
+    def default_visibility():
+        return 'public'
 
     def on_change_name(self):
         res = {}
