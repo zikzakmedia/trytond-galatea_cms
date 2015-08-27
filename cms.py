@@ -57,13 +57,14 @@ class Menu(ModelSQL, ModelView):
         cls._order.insert(0, ('sequence', 'ASC'))
         cls._order.insert(1, ('id', 'ASC'))
 
+    @fields.depends('name', 'code')
     def on_change_name(self):
-        res = {}
-        if self.name and not self.code:
-            res['code'] = slugify(self.name)
-        if self.name and not self.slug:
-            res['slug'] = slugify(self.name)
-        return res
+        if self.name:
+            az09 = slugify(self.name)
+            if not self.code:
+                self.code = az09
+            if not self.slug:
+                self.slug = az09
 
     @classmethod
     def validate(cls, menus):
@@ -151,11 +152,10 @@ class Article(ModelSQL, ModelView):
                 'Dissable active field.'),
             })
 
+    @fields.depends('name', 'slug')
     def on_change_name(self):
-        res = {}
         if self.name and not self.slug:
-            res['slug'] = slugify(self.name)
-        return res
+            self.slug = slugify(self.name)
 
     @classmethod
     def copy(cls, posts, default=None):
@@ -267,12 +267,10 @@ class Block(ModelSQL, ModelView):
     def default_visibility():
         return 'public'
 
+    @fields.depends('name', 'code')
     def on_change_name(self):
-        res = {}
         if self.name and not self.code:
-            res['code'] = slugify(self.name)
-        return res
-
+            self.code = slugify(self.name)
 
 class Carousel(ModelSQL, ModelView):
     "Carousel CMS"
@@ -288,11 +286,10 @@ class Carousel(ModelSQL, ModelView):
     def default_active():
         return True
 
+    @fields.depends('name', 'code')
     def on_change_name(self):
-        res = {}
         if self.name and not self.code:
-            res['code'] = slugify(self.name)
-        return res
+            self.code = slugify(self.name)
 
 
 class CarouselItem(ModelSQL, ModelView):
