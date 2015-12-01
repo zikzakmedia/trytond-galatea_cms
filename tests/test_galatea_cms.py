@@ -1,25 +1,14 @@
-#!/usr/bin/env python
-# This file is part galatea_cms module for Tryton.
-# The COPYRIGHT file at the top level of this repository contains
-# the full copyright notices and license terms.
+# This file is part of the galatea_cms module for Tryton.
+# The COPYRIGHT file at the top level of this repository contains the full
+# copyright notices and license terms.
 import unittest
 import trytond.tests.test_tryton
-from trytond.tests.test_tryton import test_view, test_depends
+from trytond.tests.test_tryton import ModuleTestCase
 
 
-class GalateaCmsTestCase(unittest.TestCase):
-    'Test Galatea CMS module'
-
-    def setUp(self):
-        trytond.tests.test_tryton.install_module('galatea_cms')
-
-    def test0005views(self):
-        'Test views'
-        test_view('galatea_cms')
-
-    def test0006depends(self):
-        'Test depends'
-        test_depends()
+class GalateaCmsTestCase(ModuleTestCase):
+    'Test Galatea Cms module'
+    module = 'galatea_cms'
 
 
 def suite():
