@@ -14,8 +14,7 @@ __all__ = ['Menu', 'Article', 'Block', 'Carousel', 'CarouselItem']
 class Menu(ModelSQL, ModelView):
     "Menu CMS"
     __name__ = 'galatea.cms.menu'
-    name = fields.Char('Name', translate=True,
-        required=True, on_change=['name', 'code', 'slug'])
+    name = fields.Char('Name', translate=True, required=True)
     code = fields.Char('Code', required=True,
         help='Internal code.')
     icon = fields.Char('Icon',
@@ -90,8 +89,7 @@ class Menu(ModelSQL, ModelView):
 class Article(ModelSQL, ModelView):
     "Article CMS"
     __name__ = 'galatea.cms.article'
-    name = fields.Char('Title', translate=True,
-        required=True, on_change=['name', 'slug'])
+    name = fields.Char('Title', translate=True, required=True)
     slug = fields.Char('Slug', required=True, translate=True,
         help='Cannonical uri.')
     slug_langs = fields.Function(fields.Dict(None, 'Slug Langs'), 'get_slug_langs')
@@ -204,8 +202,7 @@ class Article(ModelSQL, ModelView):
 class Block(ModelSQL, ModelView):
     "Block CMS"
     __name__ = 'galatea.cms.block'
-    name = fields.Char('Name', required=True,
-        on_change=['name', 'code', 'slug'])
+    name = fields.Char('Name', required=True)
     code = fields.Char('Code', required=True, help='Internal code.')
     type = fields.Selection([
         ('image', 'Image'),
@@ -275,8 +272,7 @@ class Block(ModelSQL, ModelView):
 class Carousel(ModelSQL, ModelView):
     "Carousel CMS"
     __name__ = 'galatea.cms.carousel'
-    name = fields.Char('Name', translate=True,
-        required=True, on_change=['name', 'code'])
+    name = fields.Char('Name', translate=True, required=True)
     code = fields.Char('Code', required=True,
         help='Internal code. Use characters az09')
     active = fields.Boolean('Active', select=True)
