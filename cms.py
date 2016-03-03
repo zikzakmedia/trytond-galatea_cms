@@ -56,7 +56,7 @@ class Menu(ModelSQL, ModelView):
         cls._order.insert(0, ('sequence', 'ASC'))
         cls._order.insert(1, ('id', 'ASC'))
 
-    @fields.depends('name', 'code')
+    @fields.depends('name', 'code', 'slug')
     def on_change_name(self):
         if self.name:
             az09 = slugify(self.name)
