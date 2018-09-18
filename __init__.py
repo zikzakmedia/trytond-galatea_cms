@@ -2,13 +2,13 @@
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 from trytond.pool import Pool
-from .cms import *
+from . import cms
 
 def register():
     Pool.register(
-        Menu,
-        Article,
-        Block,
-        Carousel,
-        CarouselItem,
+        cms.Menu,
+        cms.Article,
+        cms.Block,
+        cms.Carousel,
+        cms.CarouselItem,
         module='galatea_cms', type_='model')
