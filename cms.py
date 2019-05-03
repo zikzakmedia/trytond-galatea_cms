@@ -1,7 +1,7 @@
 # This file is part galatea_cms module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
-from trytond.model import ModelSQL, ModelView, fields
+from trytond.model import ModelSQL, ModelView, fields, tree
 from trytond.pool import Pool
 from trytond.transaction import Transaction
 from trytond.cache import Cache
@@ -11,7 +11,7 @@ from .tools import slugify
 __all__ = ['Menu', 'Article', 'Block', 'Carousel', 'CarouselItem']
 
 
-class Menu(ModelSQL, ModelView):
+class Menu(tree(), ModelSQL, ModelView):
     "Menu CMS"
     __name__ = 'galatea.cms.menu'
     name = fields.Char('Name', translate=True, required=True)
@@ -66,11 +66,6 @@ class Menu(ModelSQL, ModelView):
                 self.slug = az09
 
     @classmethod
-    def validate(cls, menus):
-        super(Menu, cls).validate(menus)
-        cls.check_recursion(menus)
-
-    @classmethod
     def copy(cls, menus, default=None):
         if default is None:
             default = {}
@@ -97,7 +92,7 @@ class Article(ModelSQL, ModelView):
     description = fields.Text('Description', required=True, translate=True,
         help='You could write wiki markup to create html content. Formats text following '
         'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
-    metadescription = fields.Char('Meta Description', translate=True, 
+    metadescription = fields.Char('Meta Description', translate=True,
         help='Almost all search engines recommend it to be shorter ' \
         'than 155 characters of plain text')
     metakeywords = fields.Char('Meta Keywords',  translate=True,
