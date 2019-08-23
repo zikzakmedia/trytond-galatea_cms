@@ -65,6 +65,32 @@ class Menu(tree(), ModelSQL, ModelView):
             if not self.slug:
                 self.slug = az09
 
+    @fields.depends('slug')
+    def on_change_slug(self):
+        if self.slug:
+            self.slug = slugify(self.slug)
+
+    @classmethod
+    def create(cls, vlist):
+        for values in vlist:
+            values = values.copy()
+            if values.get('slug'):
+                slug = slugify(values.get('esale_slug'))
+                values['slug'] = slug
+        return super(Menu, cls).create(vlist)
+
+    @classmethod
+    def write(cls, *args):
+        actions = iter(args)
+        args = []
+        for menus, values in zip(actions, actions):
+            values = values.copy()
+            if values.get('slug'):
+                slug = slugify(values.get('slug'))
+                values['slug'] = slug
+            args.extend((menus, values))
+        return super(Menu, cls).write(*args)
+
     @classmethod
     def copy(cls, menus, default=None):
         if default is None:
@@ -150,17 +176,43 @@ class Article(ModelSQL, ModelView):
         if self.name and not self.slug:
             self.slug = slugify(self.name)
 
-    @classmethod
-    def copy(cls, posts, default=None):
-        new_posts = []
-        for post in posts:
-            default['slug'] = '%s-copy' % post.slug
-            new_post, = super(Article, cls).copy([post], default=default)
-            new_posts.append(new_post)
-        return new_posts
+    @fields.depends('slug')
+    def on_change_slug(self):
+        if self.slug:
+            self.slug = slugify(self.slug)
 
     @classmethod
-    def delete(cls, posts):
+    def create(cls, vlist):
+        for values in vlist:
+            values = values.copy()
+            if values.get('slug'):
+                slug = slugify(values.get('esale_slug'))
+                values['slug'] = slug
+        return super(Article, cls).create(vlist)
+
+    @classmethod
+    def write(cls, *args):
+        actions = iter(args)
+        args = []
+        for articles, values in zip(actions, actions):
+            values = values.copy()
+            if values.get('slug'):
+                slug = slugify(values.get('slug'))
+                values['slug'] = slug
+            args.extend((articles, values))
+        return super(Article, cls).write(*args)
+
+    @classmethod
+    def copy(cls, articles, default=None):
+        new_articles = []
+        for article in articles:
+            default['slug'] = '%s-copy' % article.slug
+            new_article, = super(Article, cls).copy([article], default=default)
+            new_articles.append(new_article)
+        return new_articles
+
+    @classmethod
+    def delete(cls, articles):
         cls.raise_user_error('delete_articles')
 
     def get_slug_langs(self, name):
