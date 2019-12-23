@@ -65,36 +65,10 @@ class Menu(ModelSQL, ModelView):
             if not self.slug:
                 self.slug = az09
 
-    @fields.depends('slug')
-    def on_change_slug(self):
-        if self.slug:
-            self.slug = slugify(self.slug)
-
     @classmethod
     def validate(cls, menus):
         super(Menu, cls).validate(menus)
         cls.check_recursion(menus)
-
-    @classmethod
-    def create(cls, vlist):
-        for values in vlist:
-            values = values.copy()
-            if values.get('slug'):
-                slug = slugify(values.get('esale_slug'))
-                values['slug'] = slug
-        return super(Menu, cls).create(vlist)
-
-    @classmethod
-    def write(cls, *args):
-        actions = iter(args)
-        args = []
-        for menus, values in zip(actions, actions):
-            values = values.copy()
-            if values.get('slug'):
-                slug = slugify(values.get('slug'))
-                values['slug'] = slug
-            args.extend((menus, values))
-        return super(Menu, cls).write(*args)
 
     @classmethod
     def copy(cls, menus, default=None):
