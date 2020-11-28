@@ -6,6 +6,8 @@ from trytond.pool import Pool
 from trytond.transaction import Transaction
 from trytond.cache import Cache
 from trytond.pyson import Eval, Not, Equal, In
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
 from .tools import slugify
 
 __all__ = ['Menu', 'Article', 'Block', 'Carousel', 'CarouselItem']
@@ -136,15 +138,6 @@ class Article(ModelSQL, ModelView):
         if len(websites) == 1:
             return websites[0].id
 
-    @classmethod
-    def __setup__(cls):
-        super(Article, cls).__setup__()
-        cls._error_messages.update({
-            'delete_articles': ('You can not delete '
-                'articles because you will get error 404 NOT Found. '
-                'Dissable active field.'),
-            })
-
     @fields.depends('name', 'slug')
     def on_change_name(self):
         if self.name and not self.slug:
@@ -187,7 +180,7 @@ class Article(ModelSQL, ModelView):
 
     @classmethod
     def delete(cls, articles):
-        cls.raise_user_error('delete_articles')
+        raise UserError(gettext('galatea_msg.msg_delete_articles'))
 
     def get_slug_langs(self, name):
         '''Return dict slugs by all languaes actives'''
